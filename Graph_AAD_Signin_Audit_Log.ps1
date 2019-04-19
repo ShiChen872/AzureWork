@@ -29,7 +29,8 @@ https://www.sunilchauhan.info/2019/02/working-with-microsoft-graph-api-using.htm
 
 Connect-AzureAD
 Set-Location "c:\Work\Tools\msgraph\Graph_Script"
-$tenantdomain = "chshi.msftonlinelab.com"
+$tenantdomain = "contoso.com"
+
 $application = Get-AzureADApplication -SearchString "Graph_API"
 
 # MS Graph token
