@@ -85,7 +85,7 @@ Function Invoke-MSGraphQuery($AccessToken, $Uri, $Method, $Body){
 ## Adjust your own data.
 
 $resourceAppIdURI = "https://graph.microsoft.com"
-$ClientID         = "XXXXXXX"   #AKA Application ID "89d46938-c368-4c47-9b04-5050ed29b7e8"
+$ClientID         = "XXXXXXX"   #AKA Application ID "xxxxxxx"
 $TenantName       = "contoso.onmicrosoft.com"                #Your Tenant Name
 $CredPrompt       = "Auto"                                   #Auto, Always, Never, RefreshSession
 $redirectUri      = "https://yourURL"                #Your Application's Redirect URI
