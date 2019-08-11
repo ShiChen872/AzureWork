@@ -77,16 +77,16 @@ Function Invoke-MSGraphQuery($AccessToken, $Uri, $Method, $Body){
     }
 
 $resourceAppIdURI = "https://graph.microsoft.com"
-$ClientID         = "89d46938-c368-4c47-9b04-5050ed29b7e8"   #AKA Application ID "89d46938-c368-4c47-9b04-5050ed29b7e8"
-$TenantName       = "uowandy.onmicrosoft.com"             #Your Tenant Name
+$ClientID         = "XXXXXXX"   #AKA Application ID "89d46938-c368-4c47-9b04-5050ed29b7e8"
+$TenantName       = "cotoso.onmicrosoft.com"             #Your Tenant Name
 $CredPrompt       = "Auto"                                   #Auto, Always, Never, RefreshSession
-$redirectUri      = "https://RedirectURI.com"                #Your Application's Redirect URI
+$redirectUri      = "https://yoururl"                #Your Application's Redirect URI
 $Uri              = "https://graph.microsoft.com/beta/oauth2PermissionGrants" #The query you want to issue to Invoke a REST command with
 $Method           = "Get"                                    #GET or PATCH
 $AccessToken      = Get-AccessToken -TenantName $TenantName -ClientID $ClientID -redirectUri $redirectUri -resourceAppIdURI $resourceAppIdURI -CredPrompt $CredPrompt
 $JSON = @" 
     {
-    "userPrincipalName": "chshi@microsoft.com"
+    "userPrincipalName": "example@microsoft.com"
     }
 "@ #JSON Syntax if you are performing a PATCH
 
