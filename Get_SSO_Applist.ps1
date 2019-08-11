@@ -12,7 +12,7 @@ even if Microsoft has been advised of the possibility of such damages.
 .Contact
 
 Author: Andy Shi
-Email: chen.shi@microsoft.com
+EMail: v-anshi@outlook.com
 
 refer from MS library
 
@@ -85,10 +85,10 @@ Function Invoke-MSGraphQuery($AccessToken, $Uri, $Method, $Body){
 ## Adjust your own data.
 
 $resourceAppIdURI = "https://graph.microsoft.com"
-$ClientID         = "89d46938-c368-4c47-9b04-5050ed29b7e8"   #AKA Application ID "89d46938-c368-4c47-9b04-5050ed29b7e8"
-$TenantName       = "uowandy.onmicrosoft.com"                #Your Tenant Name
+$ClientID         = "XXXXXXX"   #AKA Application ID "89d46938-c368-4c47-9b04-5050ed29b7e8"
+$TenantName       = "contoso.onmicrosoft.com"                #Your Tenant Name
 $CredPrompt       = "Auto"                                   #Auto, Always, Never, RefreshSession
-$redirectUri      = "https://RedirectURI.com"                #Your Application's Redirect URI
+$redirectUri      = "https://yourURL"                #Your Application's Redirect URI
 $Uri              = "https://graph.microsoft.com/beta/serviceprincipals"+"?$"+"select=displayname,appid,preferredTokenSigningKeyThumbprint" #The query you want to issue to Invoke a REST command with
 $Method           = "Get"                                    #GET or PATCH
 $AccessToken      = Get-AccessToken -TenantName $TenantName -ClientID $ClientID -redirectUri $redirectUri -resourceAppIdURI $resourceAppIdURI -CredPrompt $CredPrompt

@@ -15,7 +15,6 @@ even if Microsoft has been advised of the possibility of such damages.
 Author: Andy Shi
 Email: v-anshi@outlook.com
 
-
 #How to use the script:
 
 1. create a new native app in Azure AD registration.
