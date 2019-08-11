@@ -8,7 +8,8 @@ The script is used to capture all RBAC info from CSV file
 .Contact
 
 Author: Andy Shi
-Email: chen.shi@microsoft.com
+Email: shi.chen@microsoft.com
+Email: v-anshi@microsoft.com
 
 .EXAMPLE
 Replace Path and file for CSV 
@@ -22,15 +23,15 @@ add feature to record logs
 ##Init the EventLog 
 Function Initialize-EventLog()
 {
-    New-EventLog -LogName Application -Source "NHVR_AAD"
-    Write-EventLog -LogName Application -Source "NHVR_AAD" -EntryType Information -EventId 0 -Message "Log initialized"
+    New-EventLog -LogName Application -Source "Example_AAD"
+    Write-EventLog -LogName Application -Source "Example_AAD" -EntryType Information -EventId 0 -Message "Log initialized"
 }
 
 function Check-EventLog()
 {
 Try
   {
-    $test=Get-EventLog -LogName Application -Source "NHVR_AAD" -Newest 1 -ErrorAction Stop
+    $test=Get-EventLog -LogName Application -Source "Example_AAD" -Newest 1 -ErrorAction Stop
     Write-Verbose "EventLog Initialized"
   }
   Catch
@@ -77,7 +78,7 @@ $Data | Add-Member -MemberType NoteProperty -Name AzureRMSubscription -Value Not
 
 
 ##Import CSV info
-$CSV = Import-Csv -Path D:\Work\Case\118112126000057\uow_AAD_Group.csv
+$CSV = Import-Csv -Path D:\work\AAD_Group.csv
 $AADSG_ObjectId = $CSV.ObjectID
 
 #loop to get search for all subscriptions:
@@ -123,7 +124,7 @@ Try
                     $Data.AzureRMSubscription = $Selct_sub.SubscriptionName
 
                     ##Output CSV
-                    $Data | Out-File D:\Work\Case\118112126000057\uow_AAD_Group_RBACRole2.csv -Append
+                    $Data | Out-File D:\work\AAD_Group_RBACRole2.csv -Append
 
                      #i++
                     $i++
@@ -133,13 +134,13 @@ Try
         }
 
         Write-Host "finish search $Selct_sub.SubscriptionName"
-        Write-EventLog -LogName Application -Source "NHVR_AAD" -EventID 30 -EntryType Information -Message "$Selct_sub.SubscriptionName was sucessful searched"
+        Write-EventLog -LogName Application -Source "Example_AAD" -EventID 30 -EntryType Information -Message "$Selct_sub.SubscriptionName was sucessful searched"
     }
 
     Write-Host "Finsh export All RBAC role info from SG CSV files"
     }
 Catch
 {
-    Write-EventLog -LogName Application -Source "NHVR_AAD" -EventID 31 -EntryType Error -Message $_.Exception.Message
+    Write-EventLog -LogName Application -Source "Example_AAD" -EventID 31 -EntryType Error -Message $_.Exception.Message
 }
 
